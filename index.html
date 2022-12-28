@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Frank's Final Project</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="queries.css" />
+
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1T6w2JmeVFfDYM4sYdWq58Uq2w7PoTa4"
+      defer
+    ></script>
+    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+    <link rel="manifest" href="manifest.json" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <script src="script.js"></script>
+
+    <div class="welcome-screen center-screen">
+      <div class="border-outline">
+        <h1>Weather and Chicago Car Crash Tracker</h1>
+        <h2>What do You Want to Do?</h2>
+
+        <div class="btn-wrapper wgrid">
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch" id="chicagoBtn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Chicago Data API</span>
+            </button>
+          </div>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch" id="weatherBtn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Check the Weather</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chicago-screen center-screen">
+      <div class="border-outline">
+        <h1 class="corner-title">Chicago Traffic Crash DataBase</h1>
+        <h2 class="chi-screen-title">How do you Want to Filter the Data?</h2>
+
+        <div class="chi-option-btn">
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch chi-month-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Month</span>
+            </button>
+          </div>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch chi-units-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Number of Cars Involved</span>
+            </button>
+          </div>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch chi-inj-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Number of Injuries</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="chi-text-field">
+          <h5 class="sub-text-desc">Temp</h5>
+
+          <label class="mdc-text-field mdc-text-field--filled chi-text">
+            <span class="mdc-text-field__ripple"></span>
+            <input
+              class="mdc-text-field__input temp"
+              type="text"
+              aria-labelledby="my-label-id"
+            />
+            <span class="mdc-line-ripple"></span>
+          </label>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch chi-filter-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Filter!</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mdc-touch-target-wrapper">
+        <button class="mdc-button mdc-button--touch cbackBtn" id="bck">
+          <span class="mdc-button__touch"></span>
+          <span class="mdc-button__label">Back</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="weather-screen center-screen">
+      <div class="border-outline">
+        <h1 class="chi-screen-title">Enter Your Latitude and Longitude</h1>
+
+        <div class="grid-2-2">
+          <div>
+            <p class="text-field-title">Latitude:</p>
+            <label class="mdc-text-field mdc-text-field--filled chi-text">
+              <span class="mdc-text-field__ripple"></span>
+              <input
+                class="mdc-text-field__input lat"
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
+
+          <div>
+            <p class="text-field-title">Longitude:</p>
+            <label class="mdc-text-field mdc-text-field--filled">
+              <span class="mdc-text-field__ripple"></span>
+              <input
+                class="mdc-text-field__input lon"
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch wEnter-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Enter</span>
+            </button>
+          </div>
+
+          <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch loc-btn">
+              <span class="mdc-button__touch"></span>
+              <span class="mdc-button__label">Use Current Location</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mdc-touch-target-wrapper">
+        <button class="mdc-button mdc-button--touch wsbackBtn" id="bck">
+          <span class="mdc-button__touch"></span>
+          <span class="mdc-button__label">Back</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="result-screen">
+      <h1 class="chi-screen-title">Filtered Data Results:</h1>
+
+      <div class="chi-buttons">
+        <div class="mdc-touch-target-wrapper">
+          <button class="mdc-button mdc-button--touch chibackBtn">
+            <span class="mdc-button__touch"></span>
+            <span class="mdc-button__label">Back</span>
+          </button>
+        </div>
+
+        <div></div>
+        <div></div>
+
+        <div class="mdc-touch-target-wrapper">
+          <button class="mdc-button mdc-button--touch mapBtn">
+            <span class="mdc-button__touch"></span>
+            <span class="mdc-button__label">See on Map</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="contain"></div>
+    </div>
+
+    <div class="weather-result">
+      <h1 class="chi-screen-title">Weather Results:</h1>
+      <div class="contain-weather"></div>
+
+      <div class="mdc-touch-target-wrapper">
+        <button class="mdc-button mdc-button--touch wbackBtn">
+          <span class="mdc-button__touch"></span>
+          <span class="mdc-button__label">Back</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="map-screen">
+      <h1 class="chi-screen-title">Google Maps Visual:</h1>
+      <div class="mdc-touch-target-wrapper">
+        <button class="mdc-button mdc-button--touch mapbackBtn">
+          <span class="mdc-button__touch"></span>
+          <span class="mdc-button__label">Back</span>
+        </button>
+      </div>
+      <div class="map"></div>
+    </div>
+
+    <aside class="mdc-snackbar">
+      <div
+        class="mdc-snackbar__surface"
+        role="status"
+        aria-relevant="additions"
+      >
+        <div class="mdc-snackbar__label" aria-atomic="false">Temp Text</div>
+      </div>
+    </aside>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js");
+      }
+    </script>
+  </body>
+</html>

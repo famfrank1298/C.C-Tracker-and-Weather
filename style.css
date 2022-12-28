@@ -1,0 +1,221 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: linear-gradient(to right bottom, #5c1010, #b33c3c);
+}
+
+h1 {
+  color: #e8a221;
+  font-family: "Trocchi", serif;
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: auto;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+h2 {
+  color: #e8a221;
+  font-family: "Trocchi", serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: auto;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+p {
+  color: #e8a221;
+  font-family: "Trocchi", serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 15px;
+  margin-top: 1 rem;
+}
+
+.grid-2-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 25px;
+}
+
+.corner-title {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  font-size: 1rem;
+}
+
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.welcome-screen {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-top: 8rem;
+}
+
+.border-outline {
+  border: solid 2px #e8a221;
+  box-shadow: rgb(253 76 0 / 50%) 0 8px 20px;
+  padding: 2rem;
+  position: relative;
+}
+
+.mdc-button .mdc-button__touch {
+  background: #e09d1f;
+  border-radius: 5rem;
+  box-shadow: rgba(253, 76, 0, 0.5) 0 8px 20px;
+}
+
+.mdc-button__label {
+  color: #520a0a;
+}
+
+.btn-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-column-gap: 10px;
+}
+
+.chicago-screen {
+  display: none;
+  margin: auto;
+  padding-top: 8rem;
+  width: 80%;
+}
+
+.chi-screen-title {
+  text-align: center;
+  margin: 1rem 0;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+}
+
+.sub-text-desc {
+  color: #e8a221;
+  font-family: "Trocchi", serif;
+  margin: 1rem 0;
+}
+
+.chi-buttons {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+}
+
+#bck {
+  margin-top: 2rem;
+  justify-content: left;
+  margin-left: 35rem;
+}
+
+.chi-option-btn {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.chi-text-field {
+  display: none;
+  margin: 0 auto;
+}
+
+.weather-screen {
+  display: none;
+  margin: auto;
+  padding-top: 2rem;
+  width: 60%;
+}
+
+.text-field-title {
+  margin-bottom: 2px;
+  width: 68%;
+}
+
+.result-screen {
+  display: none;
+  width: 100%;
+}
+
+.weather-result {
+  display: none;
+}
+.map-screen {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  display: none;
+  width: 50%;
+  height: 80% !important;
+  border: solid 2px #e8a221;
+  box-shadow: rgba(253, 76, 0, 0.5) 0 8px 20px;
+  margin: -5px auto;
+}
+
+.mapbackBtn {
+  margin-left: 1px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.mdc-snackbar {
+  display: none;
+}
+
+.mdc-text-field {
+  margin: 0 2rem;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #e8a221 !important;
+}
+
+.contain {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 25px;
+  grid-column-gap: 25px;
+  margin: 2rem 2rem;
+}
+
+.card-container {
+  border-radius: 20px;
+  box-shadow: 0 0 10px 2px #e8a221;
+}
+
+.card-container--weather {
+  width: 30%;
+  margin: 1rem auto;
+}
+
+.card-content {
+  text-align: center;
+  color: #520a0a;
+  padding: 20px;
+  font-family: "Trocchi", serif;
+}

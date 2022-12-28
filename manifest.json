@@ -1,0 +1,17 @@
+{
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "name": "API Project",
+  "short_name": "API",
+  "description": "Chicago and Weather API Used",
+  "display": "standalone",
+  "start_url": "/?utm_source=homescreen",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "lion-pngrepo-com.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
