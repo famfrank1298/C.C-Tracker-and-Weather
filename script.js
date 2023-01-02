@@ -10,14 +10,14 @@ var target;
 var watchId;
 let loc_btn;
 
-var db = new Dexie("LocationDatabase");
+// var db = new Dexie("LocationDatabase");
 
-// DB with single table "location" with primary key "lat", "lon"
-db.version(1).stores({
-  geo_location: `
-    lat,
-    lon`,
-});
+// // DB with single table "location" with primary key "lat", "lon"
+// db.version(1).stores({
+//   geo_location: `
+//     lat,
+//     lon`,
+// });
 
 function init() {
   loc_btn = document.querySelector(".loc-btn");
