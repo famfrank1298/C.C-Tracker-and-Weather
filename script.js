@@ -192,9 +192,6 @@ function fetchData(url) {
   document.querySelector(".chicago-screen").style.display = "none";
   document.querySelector(".weather-screen").style.display = "none";
   let map1 = document.querySelector(".map");
-  let empty = document.createElement("h2");
-  empty.classList.add("center-screen");
-  document.querySelector(".result-screen").append(empty);
 
   let nodes = document.querySelector(".contain");
   let child = nodes.lastElementChild;
@@ -290,9 +287,10 @@ function fetchData(url) {
       });
 
       if (count == 0) {
-        empty.innerText = "No Results Matching Given Filtered Data Value...";
+        document.querySelector(".empty-txt").innerText =
+          "No Results Matching Given Filtered Data Value...";
       } else {
-        empty.innerText = "";
+        document.querySelector(".empty-txt").innerText = "";
       }
 
       document.querySelector(".result-screen").style.display = "block";
