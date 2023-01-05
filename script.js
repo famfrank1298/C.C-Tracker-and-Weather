@@ -194,6 +194,7 @@ function fetchData(url) {
   let map1 = document.querySelector(".map");
   let empty = document.createElement("h2");
   empty.classList.add("center-screen");
+  document.querySelector(".result-screen").append(empty);
 
   let nodes = document.querySelector(".contain");
   let child = nodes.lastElementChild;
@@ -207,6 +208,7 @@ function fetchData(url) {
     map_markers[i].setMap(null);
     console.log("deleted");
   }
+
   map_markers = [];
 
   fetch(url)
@@ -289,10 +291,8 @@ function fetchData(url) {
 
       if (count == 0) {
         empty.innerText = "No Results Matching Given Filtered Data Value...";
-        document.querySelector(".result-screen").append(empty);
       } else {
         empty.innerText = "";
-        document.querySelector(".result-screen").append(empty);
       }
 
       document.querySelector(".result-screen").style.display = "block";
