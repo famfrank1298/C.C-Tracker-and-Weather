@@ -9,6 +9,7 @@ let snackbar;
 var target;
 var watchId;
 let loc_btn;
+let map_markers = {};
 
 // var db = new Dexie("LocationDatabase");
 
@@ -191,6 +192,8 @@ function fetchData(url) {
   document.querySelector(".chicago-screen").style.display = "none";
   document.querySelector(".weather-screen").style.display = "none";
   let map1 = document.querySelector(".map");
+  let empty = document.createElement("h2");
+  empty.classList.add("center-screen");
 
   let nodes = document.querySelector(".contain");
   let child = nodes.lastElementChild;
@@ -199,6 +202,9 @@ function fetchData(url) {
     nodes.removeChild(child);
     child = nodes.lastElementChild;
   }
+
+  setMapOnAll(null);
+  map_markers = [];
 
   fetch(url)
     .then((response) => {
@@ -269,18 +275,22 @@ function fetchData(url) {
         let lat = record.latitude;
         let lng = record.longitude;
         const myLatLng = { lat: parseFloat(lat, 10), lng: parseFloat(lng, 10) };
+        map_markers.append(myLatLng);
 
         // The marker, positioned at Uluru
         const marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
         });
+
+        map_markers.push(marker);
       });
 
       if (count == 0) {
-        let empty = document.createElement("h2");
-        empty.classList.add("center-screen");
         empty.innerText = "No Results Matching Given Filtered Data Value...";
+        document.querySelector(".result-screen").append(empty);
+      } else {
+        empty.innerText = "";
         document.querySelector(".result-screen").append(empty);
       }
 
