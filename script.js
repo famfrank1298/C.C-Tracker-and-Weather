@@ -9,7 +9,7 @@ let snackbar;
 var target;
 var watchId;
 let loc_btn;
-let map_markers = {};
+let map_markers = [];
 
 // var db = new Dexie("LocationDatabase");
 
@@ -203,7 +203,10 @@ function fetchData(url) {
     child = nodes.lastElementChild;
   }
 
-  setMapOnAll(null);
+  for (let i = 0; i < map_markers.length; i++) {
+    map_markers[i].setMap(null);
+    console.log("deleted");
+  }
   map_markers = [];
 
   fetch(url)
@@ -275,8 +278,6 @@ function fetchData(url) {
         let lat = record.latitude;
         let lng = record.longitude;
         const myLatLng = { lat: parseFloat(lat, 10), lng: parseFloat(lng, 10) };
-        map_markers.append(myLatLng);
-
         // The marker, positioned at Uluru
         const marker = new google.maps.Marker({
           position: myLatLng,
